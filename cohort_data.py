@@ -36,30 +36,56 @@ def unique_houses(filename):
        
 
     houses.remove('')    
-    print houses
+    return houses
      
 
-unique_houses("cohort_data.txt")
+# unique_houses("cohort_data.txt")
 
-# def sort_by_cohort(filename):
-#     """TODO: Sort students by cohort.
+def sort_by_cohort(filename):
+    """TODO: Sort students by cohort.
 
-#     Iterates over the data to create a list for each cohort, ordering students
-#     alphabetically by first name and tas separately. Returns list of lists.
+    Iterates over the data to create a list for each cohort, ordering students
+    alphabetically by first name and tas separately. Returns list of lists.
 
-#         ex. winter_15 = ["alice tsao", "amanda gilmore", "anne vetto", "..." ]
-#         ex. all_students = [winter_15, spring_15, tas]
+        ex. winter_15 = ["alice tsao", "amanda gilmore", "anne vetto", "..." ]
+        ex. all_students = [winter_15, spring_15, tas]
     
-#     """
+    """
+    cohort = [] # creating the empty set for houses
+    open_file = open(filename) # opening the file
+    for line in open_file: 
+        student_info_list = line.rstrip().split("|")
+        # now list_line is a list of [firstname, lastname, house, advisor, cohort_term]
+        firstname, lastname, house, advisor, cohort_term = student_info_list
+        cohort.append(cohort_term)
 
-#     all_students = []
-#     winter_15 = []
-#     spring_15 = []
-#     tas = []
+      #  spring_15 = []
+    # all_students = []
+    # winter_15 = []
+    # spring_15 = []
+    # tas = []
+    print cohort
+    print "This is a set:"
+    cohort_set = set(cohort)
+    cohort_set.remove('')
+    print cohort_set
 
-#     # Code goes here
+    # Iterates over the data to create a list for each cohort, ordering students
+    # alphabetically by first name and tas separately. Returns list of lists.
+    # summer_14_list = []
+    # spring_13_list = []
+    # spring_15_list = []
+    # winter_15_list = []
+    # fall_13_list = []
+    # fall_14_list = []
 
-#     return all_students
+    # for i in cohort_set:
+    #     if cohort_term == 'Fall 2014':
+             
+
+
+sort_by_cohort("cohort_data.txt")
+
 
 
 # def students_by_house(filename):
